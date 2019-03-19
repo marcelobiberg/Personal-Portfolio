@@ -1,0 +1,104 @@
+﻿@page
+@model ProfileModel
+@{
+    ViewData["Title"] = "Profile";
+}
+@inject Biberg.MyPortfolio.Services.Profile.ProfileManager ProfileManager
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Meu Cadastro
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Settings</a></li>
+        <li class="active">Perfil</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-lg-10">
+            <!-- Profile Settings -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Perfil público</h3>
+                </div>
+                <div class="box-body box-profile">
+                    <form class="form-horizontal" method="post">
+                        <div class="form-group">
+                            <label for="inputUserName" class="col-sm-2 control-label">Nome Completo</label>
+                            <div class="col-sm-10">
+                                <input asp-for="UserName" class="form-control" id="inputUserName" placeholder="Username">
+                                <span asp-validation-for="UserName" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-sm-2 control-label">E-mail</label>
+                            <div class="col-sm-10">
+                                @if (ProfileManager.IsEmailConfirmed(ProfileManager.CurrentUser))
+                                {
+                                    <div class="input-group">
+                                        <input asp-for="Email" type="email" class="form-control" id="inputEmail" placeholder="E-mail">
+                                        <span class="input-group-addon" aria-hidden="true"><span class="glyphicon glyphicon-ok text-success"></span></span>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <input asp-for="Email" type="email" class="form-control" id="inputEmail" placeholder="E-mail">
+                                    <button asp-page-handler="SendVerificationEmail" class="btn btn-link">Enviar e-mail de verificação</button>
+                                }
+                                <span asp-validation-for="Email" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPhone" class="col-sm-2 control-label">Telefone</label>
+                            <div class="col-sm-2">
+                                <input asp-for="PhoneNumber" class="form-control" id="inputPhoneNumber" placeholder="Phone" data-inputmask='"mask": "+55 (99) 99999-9999"' data-mask>
+                                <span asp-validation-for="PhoneNumber" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputRole" class="col-sm-2 control-label">Atuação</label>
+                            <div class="col-sm-2">
+                                <input asp-for="Role" class="form-control" id="inputRole" placeholder="Atuação">
+                                <span asp-validation-for="Role" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-text">
+                            <label asp-for="AboutDescription" class="col-sm-2 control-label"></label>
+                            <textarea asp-for="AboutDescription" class="form-text" rows="5" cols="40"></textarea>
+                            <span asp-validation-for=" AboutDescription" class="help-block"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputGithub" class="col-sm-2 control-label">Github</label>
+                            <div class="col-sm-2">
+                                <input asp-for="UrlGithub" class="form-control" id="inputGithub" placeholder="Url do Guthub">
+                                <span asp-validation-for="UrlGithub" class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Salvar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2">
+        </div>
+    </div>
+</section>
+@section Scripts {
+    <!-- InputMask -->
+    <script src="~/plugins/input-mask/jquery.inputmask.js"></script>
+    <script src="~/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+    <script src="~/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+    <!-- Page script -->
+    <script>
+        $(function () {
+            $('[data-mask]').inputmask();
+        });
+    </script>
+}

@@ -1,0 +1,39 @@
+﻿// Configure bundling and minification for the project.
+// More info at https://go.microsoft.com/fwlink/?LinkId=808241
+[
+  {
+    "outputFileName": "wwwroot/css/site.min.css",
+    // An array of relative input file paths. Globbing patterns supported
+    "inputFiles": [
+      "wwwroot/css/site.css",
+      "wwwroot/css/style.sea.css",
+      "wwwroot/plugins/bootstrap-site/dist/css/bootstrap.css",
+      "wwwroot/plugins/font-awesome/css/font-awesome.css",
+      "wwwroot/plugins/owl.carousel/assets/owl.theme.default.css",
+      "wwwroot/plugins/animate/animate.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/site.min.js",
+    "inputFiles": [
+      "wwwroot/js/site.js",
+      "wwwroot/plugins/jquery/dist/jquery.js",
+      "wwwroot/plugins/Notify/notify.js",
+      "wwwroot/plugins/popper/umd/popper.js",
+      "wwwroot/plugins/bootstrap-site/dist/js/bootstrap.js",
+      "wwwroot/plugins/jquery.cookie/jquery.cookie.js",
+      "wwwroot/plugins/owl.carousel/owl.carousel.js",
+      "wwwroot/plugins/waypoints/lib/jquery.waypoints.js",
+      "wwwroot/plugins/jquery.counterup/jquery.counterup.js",
+      "wwwroot/js/front.js",
+      "wwwroot/plugins/input-mask/jquery.inputmask.js"
+    ],
+    // Optionally specify minification options
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    // Optionally generate .map file
+    "sourceMap": false
+  }
+]
