@@ -1,0 +1,62 @@
+﻿@page
+@model Biberg.MyPortfolio.Pages.Project.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Project</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Project.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Project.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ShortDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Project.ShortDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ImagePath)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Project.ImagePath)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.UrlProject)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Project.UrlProject)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.UrlGithub)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Project.UrlGithub)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ProjectTypesID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Project.ProjectTypesID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Project.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

@@ -53,16 +53,13 @@ namespace Biberg.MyPortfolio.Pages.Settings
         [Display(Name = "Github")]
         public string UrlGithub { get; set; }
 
-        //[BindProperty]
-        //public BoostNo Boost_No { get; set; }
-
         public bool IsEmailConfirmed { get; set; }
 
         public async Task<IActionResult> OnGetAsync()
         {
             ApplicationUser user = await _userManager.GetUserAsync(User);
             if (user == null)
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Não foi possível carregar o usuário ID '{_userManager.GetUserId(User)}'.");
 
             UserName = user.UserName;
             Email = user.Email;
@@ -84,14 +81,14 @@ namespace Biberg.MyPortfolio.Pages.Settings
             }
 
             ApplicationUser user = await _userManager.GetUserAsync(User);
-            if (user == null) throw new ApplicationException($"Não foi possível carregar usuário com ID Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            if (user == null) throw new ApplicationException($"Não foi possível carregar o usuário com ID'{_userManager.GetUserId(User)}'.");
 
             if (UserName != user.UserName)
             {
                 var setUserNameResult = await _userManager.SetUserNameAsync(user, UserName);
                 if (!setUserNameResult.Succeeded)
                 {
-                    TempData["StatusMessage"] = $"Error on changing username." + string.Join(". ", setUserNameResult.Errors.Select(p => p.Description));
+                    TempData["StatusMessage"] = $"Não foi possível alterar o campo - Nome Completo." + string.Join(". ", setUserNameResult.Errors.Select(p => p.Description));
                     return RedirectToPage();
                 }
             }
@@ -101,7 +98,7 @@ namespace Biberg.MyPortfolio.Pages.Settings
                 var setEmailResult = await _userManager.SetEmailAsync(user, Email);
                 if (!setEmailResult.Succeeded)
                 {
-                    TempData["StatusMessage"] = $"Error on changing email. '{Email}' use in other account and must be unique.";
+                    TempData["StatusMessage"] = $"Erro ao mudar o e-mail. '{Email}' Usado em outra conta e precisa ser único.";
                     return RedirectToPage();
                 }
             }
@@ -111,13 +108,16 @@ namespace Biberg.MyPortfolio.Pages.Settings
                 var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, PhoneNumber);
                 if (!setPhoneResult.Succeeded)
                 {
-                    throw new ApplicationException($"Unexpected error occurred setting phone number for user with ID '{user.Id}'.");
+                    throw new ApplicationException($"Erro inesperado ao configurar número do telefone para user ID '{user.Id}'.");
                 }
             }
 
+            user.Role = Role;
+            user.AboutDescription = AboutDescription;
+            user.UrlGithub = UrlGithub;
             await _userManager.UpdateAsync(user);
 
-            TempData["StatusMessage"] = "Your profile has been updated";
+            TempData["StatusMessage"] = "Seu Profile foi atualizado";
 
             return RedirectToPage();
         }
@@ -130,13 +130,13 @@ namespace Biberg.MyPortfolio.Pages.Settings
             }
 
             ApplicationUser user = await _userManager.GetUserAsync(User);
-            if (user == null) throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            if (user == null) throw new ApplicationException($"Não foi possível carregar user ID '{_userManager.GetUserId(User)}'.");
 
             var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
             var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
             await _emailSender.SendEmailConfirmationAsync(user.Email, callbackUrl);
 
-            TempData["StatusMessage"] = "Verification email sent. Please check your email.";
+            TempData["StatusMessage"] = "Verificação de envio de e-mail. Por favor verifique seu e-mail.";
 
             return RedirectToPage();
         }

@@ -1,41 +1,30 @@
 ﻿@page
 @model ProfileModel
-@{
-    ViewData["Title"] = "Profile";
-}
 @inject Biberg.MyPortfolio.Services.Profile.ProfileManager ProfileManager
-<!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Meu Cadastro
+        Cadastro
     </h1>
-    <ol class="breadcrumb">
-        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Settings</a></li>
-        <li class="active">Perfil</li>
-    </ol>
 </section>
-<!-- Main content -->
 <section class="content">
     <div class="row">
         <div class="col-lg-10">
-            <!-- Profile Settings -->
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Perfil público</h3>
+                    <h3 class="box-title">Meu Cadastro</h3>
                 </div>
                 <div class="box-body box-profile">
                     <form class="form-horizontal" method="post">
                         <div class="form-group">
                             <label for="inputUserName" class="col-sm-2 control-label">Nome Completo</label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-6">
                                 <input asp-for="UserName" class="form-control" id="inputUserName" placeholder="Username">
                                 <span asp-validation-for="UserName" class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputEmail" class="col-sm-2 control-label">E-mail</label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-6">
                                 @if (ProfileManager.IsEmailConfirmed(ProfileManager.CurrentUser))
                                 {
                                     <div class="input-group">
@@ -67,12 +56,12 @@
                         </div>
                         <div class="form-text">
                             <label asp-for="AboutDescription" class="col-sm-2 control-label"></label>
-                            <textarea asp-for="AboutDescription" class="form-text" rows="5" cols="40"></textarea>
+                            <textarea asp-for="AboutDescription" class="form-text" rows="5" cols="120"></textarea>
                             <span asp-validation-for=" AboutDescription" class="help-block"></span>
                         </div>
                         <div class="form-group">
                             <label for="inputGithub" class="col-sm-2 control-label">Github</label>
-                            <div class="col-sm-2">
+                            <div class="col-sm-4">
                                 <input asp-for="UrlGithub" class="form-control" id="inputGithub" placeholder="Url do Guthub">
                                 <span asp-validation-for="UrlGithub" class="help-block"></span>
                             </div>
@@ -86,16 +75,12 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-2">
-        </div>
     </div>
 </section>
 @section Scripts {
-    <!-- InputMask -->
     <script src="~/plugins/input-mask/jquery.inputmask.js"></script>
     <script src="~/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
     <script src="~/plugins/input-mask/jquery.inputmask.extensions.js"></script>
-    <!-- Page script -->
     <script>
         $(function () {
             $('[data-mask]').inputmask();

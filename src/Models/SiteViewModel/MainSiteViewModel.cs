@@ -1,9 +1,6 @@
-﻿using System;
+﻿using Biberg.MyPortfolio.Data;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Biberg.MyPortfolio.Models.SiteViewModel
 {
@@ -21,8 +18,7 @@ namespace Biberg.MyPortfolio.Models.SiteViewModel
 
         //Projects
         public List<Project> Projects { get; set; }
-        public List<ProjectTypes> ProjectTypes { get; set; }
-
+        public List<ProjectType> ProjectTypes { get; set; }
         //Projects
         public Contact Contacts { get; set; }
     }

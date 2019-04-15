@@ -23,7 +23,7 @@
         </form>
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
-            <li @(Html.IsMenuActive("/Dashboards") ? "active" : "")">
+            <li @(Html.IsMenuActive("/Dashboards") ? "active" : "") ">
                 <a href="../Dashboards/Dashboard1">
                     <i class="fa fa-dashboard"></i> <span>Dashboards</span>
                 </a>
@@ -31,16 +31,41 @@
             <li class="treeview @(Html.IsMenuActive("/Settings") ? "active" : "")">
                 <a href="#">
                     <i class="fa fa-gear"></i>
-                    <span>Settings</span>
+                    <span>Configurações</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="@(Html.IsMenuActive("/Settings/Profile") ? "active" : "")"><a href="~/Settings/Profile"><i class="fa fa-user"></i> Profile</a></li>
-                    <li class="@(Html.IsMenuActive("/Settings/Account") ? "active" : "")"><a href="~/Settings/Account"><i class="fa fa-lock"></i> Account</a></li>
-                    <li class="@(Html.IsMenuActive("/Settings/Security") ? "active" : "")"><a href="~/Settings/Security"><i class="fa fa-user-secret"></i> Security</a></li>
-                    <li class="@(Html.IsMenuActive("/Settings/History") ? "active" : "")"><a href="~/Settings/History"><i class="fa fa-history"></i> History</a></li>
+                    <li class="@(Html.IsMenuActive("/Settings/Profile") ? "active" : "")"><a href="~/Settings/Profile"><i class="fa fa-user"></i> Cadastro</a></li>
+                    <li class="@(Html.IsMenuActive("/Settings/Account") ? "active" : "")"><a href="~/Settings/Account"><i class="fa fa-lock"></i> Alterar senha</a></li>
+                    <li class="@(Html.IsMenuActive("/Settings/History") ? "active" : "")"><a href="~/Settings/History"><i class="fa fa-history"></i> histórico</a></li>
+                </ul>
+            </li>
+            <li class="treeview @(Html.IsMenuActive("/Skill") ? "active" : "")">
+                <a href="#">
+                    <i class="fa fa-gear"></i>
+                    <span>Habilidade</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="@(Html.IsMenuActive("/Skill/Create") ? "active" : "")"><a href="~/Skill/Create"><i class="fa fa-user"></i> Adicionar</a></li>
+                    <li class="@(Html.IsMenuActive("/Skill/Index") ? "active" : "")"><a href="~/Skill/Index"><i class="fa fal-lock"></i> Listar</a></li>
+                </ul>
+            </li>
+            <li class="treeview @(Html.IsMenuActive("/Project") ? "active" : "")">
+                <a href="#">
+                    <i class="fa fa-gear"></i>
+                    <span>Projeto</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="@(Html.IsMenuActive("/Project/Create") ? "active" : "")"><a href="~/Project/Create"><i class="fa fa-user"></i> Adicionar</a></li>
+                    <li class="@(Html.IsMenuActive("/Project/Index") ? "active" : "")"><a href="~/Project/Index"><i class="fa fal-lock"></i> Listar</a></li>
                 </ul>
             </li>
             <li class="treeview @(Html.IsMenuActive("/Mail") ? "active" : "")">

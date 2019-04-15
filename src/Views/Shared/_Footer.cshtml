@@ -1,7 +1,22 @@
-﻿
+﻿@inject Biberg.MyPortfolio.Services.Profile.ProfileManager ProfileManager
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
         <b>Feito com muito carinho =)</b>
     </div>
-    <strong><a href="https://github.com/marcelobiberg" title="Ir para Github do Ninjaaa!"> <i class="fa fa-2x fa-github-alt"></i>  Developer By Marcelo Biberg. </a></strong> 
+    <strong><i class="fa fa-2x fa-github-alt"></i> <a id="DeveloperBy" href="@ProfileManager.CurrentUser.UrlGithub" target="_blank" style="color:#1e1c1c">  Marcelo Biberg.</a></strong>
 </footer>
+
+<script type="text/javascript">
+    var el = document.getElementById('DeveloperBy');
+
+    el.addEventListener("mouseover", mouseOver);
+    el.addEventListener("mouseout", mouseOut);
+
+    function mouseOver() {
+        el.innerText = "Marcelo Biberg Ninja =)";
+    }
+
+    function mouseOut() {
+        el.innerText = "  Marcelo Biberg.";
+    }
+</script>

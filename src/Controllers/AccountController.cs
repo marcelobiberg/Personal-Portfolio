@@ -26,7 +26,7 @@ namespace Biberg.MyPortfolio.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            _logger.LogInformation("User logged out.");
+            _logger.LogInformation("usuário deslogado.");
             return RedirectToPage("/Account/Login");
         }
     }

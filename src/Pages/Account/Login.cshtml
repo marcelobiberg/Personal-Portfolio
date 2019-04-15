@@ -8,7 +8,7 @@
     <p class="login-box-msg">Autenticar usuário</p>
     <form method="post">
         <div class="form-group has-feedback">
-            <input asp-for="Input.Email" type="email" class="form-control" placeholder="E-mail">
+            <input asp-for="Input.Email" type="email" class="form-control" placeholder="E-mail" autofocus>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             <span asp-validation-for="Input.Email" class="help-block"></span>
         </div>
@@ -26,11 +26,9 @@
                     </label>
                 </div>
             </div>
-            <!-- /.col -->
             <div class="col-xs-4">
                 <button type="submit" class="btn btn-primary btn-block btn-success">Entrar</button>
             </div>
-            <!-- /.col -->
         </div>
         @Html.AntiForgeryToken()
     </form>
@@ -50,8 +48,5 @@
             }
         </div>
     </form>
-    <!-- /.social-auth-links -->
     <a asp-page="./ForgotPassword">Esqueci minha senha</a><br>
-    <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="text-center">Cadastrar-se</a>
 </div>
-<!-- /.login-box-body -->

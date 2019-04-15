@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
-namespace Biberg.MyPortfolio.Data.Migrations
+namespace Biberg.MyPortfolio.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -17,7 +17,7 @@ namespace Biberg.MyPortfolio.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.0.0-rtm-26452")
+                .HasAnnotation("ProductVersion", "2.0.3-rtm-10026")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Biberg.MyPortfolio.Data.ApplicationUser", b =>
@@ -41,10 +41,6 @@ namespace Biberg.MyPortfolio.Data.Migrations
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100);
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256);
@@ -84,25 +80,23 @@ namespace Biberg.MyPortfolio.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("Biberg.MyPortfolio.Models.Project", b =>
+            modelBuilder.Entity("Biberg.MyPortfolio.Data.Project", b =>
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("ApplicationUserID");
+                    b.Property<string>("ApplicationUserId");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("ntext")
                         .HasMaxLength(600);
 
                     b.Property<string>("ImagePath")
                         .HasMaxLength(150);
 
-                    b.Property<int>("ProjectTypesID");
-
-                    b.Property<int?>("ProjectTypesID1");
-
                     b.Property<string>("ShortDescription")
+                        .HasColumnType("ntext")
                         .HasMaxLength(300);
 
                     b.Property<string>("Title")
@@ -117,17 +111,12 @@ namespace Biberg.MyPortfolio.Data.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("ApplicationUserID");
-
-                    b.HasIndex("ProjectTypesID")
-                        .IsUnique();
-
-                    b.HasIndex("ProjectTypesID1");
+                    b.HasIndex("ApplicationUserId");
 
                     b.ToTable("Projects");
                 });
 
-            modelBuilder.Entity("Biberg.MyPortfolio.Models.ProjectTypes", b =>
+            modelBuilder.Entity("Biberg.MyPortfolio.Data.ProjectType", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
@@ -138,15 +127,15 @@ namespace Biberg.MyPortfolio.Data.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("ProjectTypes");
+                    b.ToTable("ProjectType");
                 });
 
-            modelBuilder.Entity("Biberg.MyPortfolio.Models.Skill", b =>
+            modelBuilder.Entity("Biberg.MyPortfolio.Data.Skill", b =>
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("ApplicationUserID");
+                    b.Property<string>("ApplicationUserId");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -160,7 +149,7 @@ namespace Biberg.MyPortfolio.Data.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("ApplicationUserID");
+                    b.HasIndex("ApplicationUserId");
 
                     b.ToTable("Skills");
                 });
@@ -273,27 +262,18 @@ namespace Biberg.MyPortfolio.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Biberg.MyPortfolio.Models.Project", b =>
+            modelBuilder.Entity("Biberg.MyPortfolio.Data.Project", b =>
                 {
-                    b.HasOne("Biberg.MyPortfolio.Data.ApplicationUser", "ApplicationUser")
+                    b.HasOne("Biberg.MyPortfolio.Data.ApplicationUser")
                         .WithMany("Projects")
-                        .HasForeignKey("ApplicationUserID");
-
-                    b.HasOne("Biberg.MyPortfolio.Models.ProjectTypes", "ProjectTypes")
-                        .WithOne("Project")
-                        .HasForeignKey("Biberg.MyPortfolio.Models.Project", "ProjectTypesID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Biberg.MyPortfolio.Models.ProjectTypes")
-                        .WithMany("Projects")
-                        .HasForeignKey("ProjectTypesID1");
+                        .HasForeignKey("ApplicationUserId");
                 });
 
-            modelBuilder.Entity("Biberg.MyPortfolio.Models.Skill", b =>
+            modelBuilder.Entity("Biberg.MyPortfolio.Data.Skill", b =>
                 {
-                    b.HasOne("Biberg.MyPortfolio.Data.ApplicationUser", "ApplicationUser")
+                    b.HasOne("Biberg.MyPortfolio.Data.ApplicationUser")
                         .WithMany("Skills")
-                        .HasForeignKey("ApplicationUserID");
+                        .HasForeignKey("ApplicationUserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

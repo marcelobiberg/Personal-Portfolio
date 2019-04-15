@@ -1,0 +1,92 @@
+﻿@page
+@model Biberg.MyPortfolio.Pages.Project.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Projeto
+        <small>Sempre em frente!</small>
+    </h1>
+</section>
+
+<section class="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Projeto Adicionar</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                        title="Collapse">
+                    <i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="box-body">
+            <form class="form-horizontal" enctype="multipart/form-data" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Project.Title"
+                           for="name"
+                           class="col-sm-2 control-label"></label>
+                    <div class="col-sm-5">
+                        <input asp-for="Project.Title" class="form-control" id="name" placeholder="Título do projeto">
+                        <span asp-validation-for="Project.Title" class="help-block"></span>
+                    </div>
+                </div>
+                <div class="form-text">
+                    <label asp-for="Project.Description" class="col-sm-2 control-label"></label>
+                    <textarea asp-for="Project.Description"
+                              class="form-text"
+                              cols="120"
+                              maxlength="600"
+                              rows="5"></textarea>
+                    <span asp-validation-for="Project.Description" class="help-block"></span>
+                </div>
+                <div class="form-text">
+                    <label asp-for="Project.ShortDescription" class="col-sm-2 control-label"></label>
+                    <textarea asp-for="Project.ShortDescription"
+                              class="form-text"
+                              cols="120"
+                              maxlength="300"
+                              rows="5"></textarea>
+                    <span asp-validation-for="Project.ShortDescription" class="help-block"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Project.ImagePath"
+                           for="ImagePath"
+                           class="col-sm-2 control-label"></label>
+                    <div class="col-sm-5">
+                        <input asp-for="Project.ImagePath" type="file" name="ImagePath" multiple />
+                        <span asp-validation-for="Project.ImagePath" class="help-block"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Project.UrlGithub"
+                           for="name"
+                           class="col-sm-2 control-label"></label>
+                    <div class="col-sm-5">
+                        <input asp-for="Project.UrlGithub" class="form-control" id="name" placeholder="Título do projeto">
+                        <span asp-validation-for="Project.UrlGithub" class="help-block"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-success">Salvar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

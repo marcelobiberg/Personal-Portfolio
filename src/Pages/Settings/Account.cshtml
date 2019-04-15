@@ -5,30 +5,25 @@
 }
 
 @inject Biberg.MyPortfolio.Services.Profile.ProfileManager ProfileManager
-<!-- Content Header (Page header) -->
-<section class="content-header">
+<section classs="content-header">
     <h1>
         My Account
     </h1>
     <ol class="breadcrumb">
         <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Settings</a></li>
-        <li class="active">My Account</li>
+        <li class="active">Meu Perfil</li>
     </ol>
 </section>
 
-
-<!-- Main content -->
 <section class="content">
 
     <div class="row">
         <div class="col-lg-2">
 
         </div>
-        <!-- /.col -->
 
         <div class="col-lg-8">
-            <!-- Account Settings -->
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">Public profile</h3>
@@ -59,29 +54,29 @@
                             </div>
                         }
                         <div class="form-group">
-                            <label for="inputNewPassword" class="col-sm-2 control-label">New Password</label>
+                            <label for="inputNewPassword" class="col-sm-2 control-label">Nova Senha</label>
 
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" id="inputNewPassword" name="NewPassword" placeholder="New password"
+                                <input type="password" class="form-control" id="inputNewPassword" name="NewPassword" placeholder="Nova Senha"
                                        data-val="true"
-                                       data-val-length="The Password must be at least 6 and at max 100 characters long."
+                                       data-val-length="A senha deve ter ao menos 6 e no máximo 100 caracteres."
                                        data-val-length-max="100"
                                        data-val-length-min="6"
                                        data-val-regex="The field Password must match the regular expression &#x27;^((?=.*[a-z])(?=.*[A-Z])(?=.*\d).&#x2B;$)&#x27;."
                                        data-val-regex-pattern="^((?=.*[a-z])(?=.*[A-Z])(?=.*\d).&#x2B;$)"
-                                       data-val-required="The Password field is required.">
+                                       data-val-required="Senha obrigatório.">
                                 <span class="field-validation-valid help-block"
                                       data-valmsg-for="NewPassword"
                                       data-valmsg-replace="true"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputConfirmPassword" class="col-sm-2 control-label">Confirm Password</label>
+                            <label for="inputConfirmPassword" class="col-sm-2 control-label">Confirmar Senha</label>
 
                             <div class="col-sm-10">
                                 <input type="password" class="form-control" id="inputConfirmPassword" name="ConfirmPassword" placeholder="Confirm password"
                                        data-val="true"
-                                       data-val-equalto="The password and confirmation password do not match."
+                                       data-val-equalto="Senha não confere."
                                        data-val-equalto-other="NewPassword">
                                 <span class="field-validation-valid help-block"
                                       data-valmsg-for="ConfirmPassword"
@@ -91,30 +86,21 @@
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 @Html.AntiForgeryToken()
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="submit" class="btn btn-primary">Salvar</button>
                             </div>
                         </div>
                         <div id="panelChangePasswordErrors" class="alert alert-danger" style="display:none;"></div>
                     </form>
                 </div>
-                <!-- /.box-body -->
             </div>
-            <!-- /.box -->
         </div>
-        <!-- /.col -->
-
         <div class="col-lg-2">
 
         </div>
-        <!-- /.col -->
     </div>
-    <!-- /.row -->
-
 </section>
-<!-- /.content -->
 
 @section Scripts {
-    <!-- Page script -->
     <script>
         $(function () {
             $("#formChangePassword").submit(function (e) {

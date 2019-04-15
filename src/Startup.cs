@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.AspNetCore.CookiePolicy;
 using Biberg.MyPortfolio.Models;
+using Biberg.MyPortfolio.Services.Profile;
 
 namespace Biberg.MyPortfolio
 {
@@ -65,6 +66,8 @@ namespace Biberg.MyPortfolio
             }
 
             services.AddTransient<Contact>();
+
+            services.AddTransient<IProfileManager,ProfileManager>();
 
             services.AddMvc()
                 .AddRazorPagesOptions(options =>

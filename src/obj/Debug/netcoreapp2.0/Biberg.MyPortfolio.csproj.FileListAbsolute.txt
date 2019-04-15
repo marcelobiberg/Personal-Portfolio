@@ -9,3 +9,15 @@ C:\Users\Marcelo Biberg\Desktop\AdminLTE-Starter-Kit-master\src\bin\Debug\netcor
 C:\Users\Marcelo Biberg\Desktop\AdminLTE-Starter-Kit-master\src\bin\Debug\netcoreapp2.0\Biberg.MyPortfolio.pdb
 C:\Users\Marcelo Biberg\Desktop\AdminLTE-Starter-Kit-master\src\obj\Debug\netcoreapp2.0\Biberg.MyPortfolio.dll
 C:\Users\Marcelo Biberg\Desktop\AdminLTE-Starter-Kit-master\src\obj\Debug\netcoreapp2.0\Biberg.MyPortfolio.pdb
+C:\Users\Marcelo Biberg\Desktop\Biberg.Portfolio\src\bin\Debug\netcoreapp2.0\Biberg.MyPortfolio.deps.json
+C:\Users\Marcelo Biberg\Desktop\Biberg.Portfolio\src\bin\Debug\netcoreapp2.0\Biberg.MyPortfolio.runtimeconfig.json
+C:\Users\Marcelo Biberg\Desktop\Biberg.Portfolio\src\bin\Debug\netcoreapp2.0\Biberg.MyPortfolio.runtimeconfig.dev.json
+C:\Users\Marcelo Biberg\Desktop\Biberg.Portfolio\src\bin\Debug\netcoreapp2.0\Biberg.MyPortfolio.dll
+C:\Users\Marcelo Biberg\Desktop\Biberg.Portfolio\src\bin\Debug\netcoreapp2.0\Biberg.MyPortfolio.pdb
+C:\Users\Marcelo Biberg\Desktop\Biberg.Portfolio\src\obj\Debug\netcoreapp2.0\Biberg.MyPortfolio.csproj.CoreCompileInputs.cache
+C:\Users\Marcelo Biberg\Desktop\Biberg.Portfolio\src\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\Marcelo Biberg\Desktop\Biberg.Portfolio\src\obj\Debug\netcoreapp2.0\Biberg.MyPortfolio.AssemblyInfoInputs.cache
+C:\Users\Marcelo Biberg\Desktop\Biberg.Portfolio\src\obj\Debug\netcoreapp2.0\Biberg.MyPortfolio.AssemblyInfo.cs
+C:\Users\Marcelo Biberg\Desktop\Biberg.Portfolio\src\obj\Debug\netcoreapp2.0\Biberg.MyPortfolio.dll
+C:\Users\Marcelo Biberg\Desktop\Biberg.Portfolio\src\obj\Debug\netcoreapp2.0\Biberg.MyPortfolio.pdb
+C:\Users\Marcelo Biberg\Desktop\Biberg.Portfolio\src\obj\Debug\netcoreapp2.0\Biberg.MyPortfolio.csprojAssemblyReference.cache

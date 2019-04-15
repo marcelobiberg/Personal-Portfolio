@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Biberg.MyPortfolio.Data;
 using Microsoft.AspNetCore.Hosting;
 using Biberg.MyPortfolio.Models.SiteViewModel;
-using Biberg.MyPortfolio.Models;
 using System.IO;
 
 namespace Biberg.MyPortfolio.Controllers
@@ -17,6 +14,7 @@ namespace Biberg.MyPortfolio.Controllers
     {
         private readonly ApplicationDbContext _Context;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IHostingEnvironment _hostingEnvironment;
 
         public SiteController(ApplicationDbContext context,
@@ -32,28 +30,21 @@ namespace Biberg.MyPortfolio.Controllers
         #region Index do Site
         public async Task<IActionResult> Index()
         {
-            //Limpa todos os cookies ao iniciar a página
-            //foreach (var cookie in Request.Cookies.Keys)
-            //{
-            //    Response.Cookies.Delete(cookie);
-            //}
-
             //ID do user logado
-            var user = await _userManager.GetUserAsync(User);
+            var user = _Context.User.FirstOrDefault();
 
             if (user != null)
             {
+                List<Skill> skills = _Context.Skills.ToList();
+                List<Project> projects = _Context.Project.ToList();
+
                 var MainSite = new MainSiteViewModel
                 {
-                    //Inicio
                     Name = user.UserName,
                     Role = user.Role,
-                    //Sobre Mim
                     AboutDescription = user.AboutDescription,
-                    Skills = user.Skills,
-                    //Projetos
-                    Projects = user.Projects
-
+                    Skills = skills,
+                    Projects = projects
                 };
                 return View(MainSite);
             }
@@ -66,8 +57,8 @@ namespace Biberg.MyPortfolio.Controllers
                     Name = "Bill Gates",
                     Role = "CEO Microsoft",
 
-                    //Sobre Mim
-                    AboutDescription = "Não Brinque com o Nerd de sua Turma, pois um dia ele pode ser seu chefe. -Bill Gates",
+                    //Modelo da zueira
+                    AboutDescription = "Seja a melhor versão de você mesmo -Bill Gates",
                     Skills = new List<Skill>
                     {
                         new Skill
@@ -100,15 +91,34 @@ namespace Biberg.MyPortfolio.Controllers
                             UrlProject = "www.teste.com.br"
                         }
                     },
-                    ProjectTypes = new List<ProjectTypes>
+                    ProjectTypes = new List<ProjectType>
                     {
-                        new ProjectTypes
+                        new ProjectType
                         {
                             Name = "Developer"
                         }
                     }
                 };
-                return View(MainSite);
+
+                var userName = "Marcelo Biberg";
+                var email = "biberg.marcelo@gmail.com";
+                var pass = "Example123456@!";
+
+                var userSeed = new ApplicationUser
+                {
+                    UserName = userName,
+                    Email = email,
+                    Role = "Developer",
+                    AboutDescription = "Faça mais do que existir"
+                };
+
+                var result = await _userManager.CreateAsync(userSeed, pass);
+                if (result.Succeeded)
+                {
+                    return View(MainSite);
+                }
+
+                return View();
             }
         }
         #endregion

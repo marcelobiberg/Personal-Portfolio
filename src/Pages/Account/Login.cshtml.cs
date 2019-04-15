@@ -96,7 +96,7 @@ namespace Biberg.MyPortfolio.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "User with this email not found");
+                    ModelState.AddModelError(string.Empty, "Usuário com este e-mail não foi encontrado!");
                     return Page();
                 }
             }

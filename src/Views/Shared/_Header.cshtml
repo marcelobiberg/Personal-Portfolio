@@ -1,12 +1,24 @@
-﻿
-<header class="main-header">
-    <!-- Logo -->
+﻿<header class="main-header">
     <a href="~/" class="logo">
-        <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>C</b>C</span>
-        <!-- logo for regular state and mobile devices -->
         <span class="logo-lg" title="Clique aqui para voltar para o site"><b>Center</b>Control</span>
     </a>
 
     @await Html.PartialAsync("_MenuBar")
 </header>
+
+@*trabalhando nisso
+    <script type="text/javascript">
+    var el = document.getElementById('LogoLG');
+
+    el.addEventListener("mouseover", mouseOverLogo);
+    el.addEventListener("mouseout", mouseOutLogo);
+
+    function mouseOverLogo() {
+        el.innerText = "Marcelo Biberg Ninja =)";
+    }
+
+    function mouseOutLogo() {
+        el.innerText = "  Marcelo Biberg.";
+    }
+</script>*@

@@ -1,0 +1,34 @@
+﻿@page
+@model Biberg.MyPortfolio.Pages.Project.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Projeto Remover</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                        title="Collapse">
+                    <i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="box-body">
+            <p>Você realmente deseja remover a habilidade ({ @Html.DisplayFor(model => model.Project.Title) })</p>
+        </div>
+        <div class="box-footer">
+            <form method="post">
+                <input type="hidden" asp-for="Project.ID" />
+                <a asp-page="./Index" class="btn btn-default">Voltar</a> |
+                <input type="submit" value="Delete" class="btn btn-danger" />
+            </form>
+        </div>
+    </div>
+</section>
