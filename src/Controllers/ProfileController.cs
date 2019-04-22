@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using Biberg.MyPortfolio.Data;
+using MyPortfolio.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace Biberg.MyPortfolio.Controllers
+namespace MyPortfolio.Controllers
 {
     public class ProfileController : Controller
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
-using Biberg.MyPortfolio.Services.Mail;
+using MyPortfolio.Services.Mail;
 
 namespace Microsoft.AspNetCore.Mvc
 {

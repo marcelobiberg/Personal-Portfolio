@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using Biberg.MyPortfolio.Data;
+using MyPortfolio.Data;
 
-namespace Biberg.MyPortfolio.Pages.Account
+namespace MyPortfolio.Pages.Account
 {
     public class LoginModel : PageModel
     {

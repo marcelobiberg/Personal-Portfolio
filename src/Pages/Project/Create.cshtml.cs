@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Biberg.MyPortfolio.Data;
+using MyPortfolio.Data;
 using System.ComponentModel.DataAnnotations;
 using System.Net.Http.Headers;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Biberg.MyPortfolio.Pages.Project
+namespace MyPortfolio.Pages.Project
 {
     public class CreateModel : PageModel
     {

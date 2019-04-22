@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Biberg.MyPortfolio.Data
+namespace MyPortfolio.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -24,7 +24,6 @@ namespace Biberg.MyPortfolio.Data
 
         public DbSet<Skill> Skills { get; set; }
         public DbSet<Project> Project { get; set; }
-        public DbSet<ProjectType> ProjectType { get; set; }
         public DbSet<ApplicationUser> User { get; set; }
     }
 }

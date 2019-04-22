@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Biberg.MyPortfolio.Data;
+using MyPortfolio.Data;
 
-namespace Biberg.MyPortfolio.Pages.Project
+namespace MyPortfolio.Pages.Project
 {
     public class DeleteModel : PageModel
     {

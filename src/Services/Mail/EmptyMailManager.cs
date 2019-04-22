@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Biberg.MyPortfolio.Services.Mail
+namespace MyPortfolio.Services.Mail
 {
     public class EmptyMailManager : IMailManager
     {

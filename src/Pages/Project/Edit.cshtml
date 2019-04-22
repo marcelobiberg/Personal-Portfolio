@@ -1,5 +1,5 @@
 ﻿@page
-@model Biberg.MyPortfolio.Pages.Project.EditModel
+@model MyPortfolio.Pages.Project.EditModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -11,6 +11,23 @@
         <small>Sempre em frente!</small>
     </h1>
 </section>
+
+<style>
+    input[type='file'] {
+        display: none
+    }
+    .input-wrapper label {
+        background-color: #3498db;
+        border-radius: 5px;
+        color: #fff;
+        margin: 10px 10px 40px 150px;
+        padding: 6px 20px;
+    }
+        .input-wrapper label:hover {
+            background-color: #2980b9
+        }
+
+</style>
 
 <section class="content">
     <div class="box">
@@ -57,13 +74,18 @@
                               rows="5"></textarea>
                     <span asp-validation-for="Project.ShortDescription" class="help-block"></span>
                 </div>
-                <div class="form-group">
-                    <label asp-for="Project.ImagePath"
-                           for="ImagePath"
-                           class="col-sm-2 control-label">
+                <hr />
+                <div class="form-group input-wrapper">
+                    <label for="fileUp"
+                           class="col-sm-1 control-label">
+                        Alterar imagem
                     </label>
-                    <div class="col-sm-5">
-                        <input type="file" name="files" multiple />
+                    <div class="col-sm-1">
+                        <input type="file"
+                               accept="image/*"
+                               name="files"
+                               id="fileUp" />
+                        <span id='nomeArquivo'></span>
                         <span asp-validation-for="Project.ImagePath" class="help-block"></span>
                     </div>
                 </div>
@@ -72,8 +94,17 @@
                            for="UrlGithub"
                            class="col-sm-2 control-label"></label>
                     <div class="col-sm-5">
-                        <input asp-for="Project.UrlGithub" class="form-control" id="UrlGithub" placeholder="Título do projeto">
+                        <input asp-for="Project.UrlGithub" class="form-control" id="UrlGithub" placeholder="URL do projeto">
                         <span asp-validation-for="Project.UrlGithub" class="help-block"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Project.UrlProject"
+                           for="urlProject"
+                           class="col-sm-2 control-label"></label>
+                    <div class="col-sm-5">
+                        <input asp-for="Project.UrlProject" class="form-control" id="urlProject" placeholder="URL do projeto">
+                        <span asp-validation-for="Project.UrlProject" class="help-block"></span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -86,6 +117,12 @@
     </div>
 </section>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+<script type="text/javascript">
+
+    var input = document.getElementById('fileUp');
+    var fileName = document.getElementById('nomeArquivo');
+
+    input.addEventListener("change", function () {
+        fileName.innerHTML =  this.value.replace('C:\fakepath', '');
+    });
+</script>

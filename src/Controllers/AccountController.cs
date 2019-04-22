@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Biberg.MyPortfolio.Data;
+using MyPortfolio.Data;
 
-namespace Biberg.MyPortfolio.Controllers
+namespace MyPortfolio.Controllers
 {
     [Route("[controller]/[action]")]
     public class AccountController : Controller

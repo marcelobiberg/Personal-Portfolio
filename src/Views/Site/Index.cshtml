@@ -1,7 +1,8 @@
-﻿@model Biberg.MyPortfolio.Models.SiteViewModel.MainSiteViewModel
+﻿@model MyPortfolio.Models.SiteViewModel.MainSiteViewModel
 @{
     Layout = null;
 }
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,8 +29,10 @@
                         <li class="nav-item"><a href="#about" class="nav-link link-scroll">Sobre</a></li>
                         <li class="nav-item"><a href="#references" class="nav-link link-scroll">Meus Projetos</a></li>
                         <li class="nav-item"><a href="#contact" class="nav-link link-scroll">Contato</a></li>
-                        @*Remover --Uso para fins de teste, redirect to Admin controller*@
-                        <li class="nav-item"><a asp-page="/Admin/index" title="Para fins didáticos" class="navbar-brand scrollTo">Administrativo <i class="fa fa-mail-forward "></i></a></li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item"><a asp-page="/Admin/index" title="Para fins didáticos" class="navbar-brand scrollTo">Administrativo <i class="fa fa-mail-forward "></i></a></li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -83,18 +86,17 @@
                     <p data-animate="fadeInUp" class="lead">Trouxe alguns projetos mais recentes para compartilhar!</p>
                 </div>
 
-                <!--##################################-->
-                <partial name="_ProjectType" />
-                <!-- <partial name="_ProjectType" model="ProfileManager.CurrentUser.ProjectTypes" /> -->
-
+                <!-- Exibe o projeto via JS -->
                 <div id="detail">
                     <div class="row">
                         <div class="col-lg-10 mx-auto">
                             <span class="close">×</span>
                             <div id="detail-slider" class="owl-carousel owl-theme"></div>
+                            <!-- Exibe titulo e subtitulo -->
                             <div class="text-center">
                                 <h1 id="detail-title" class="title"></h1>
                             </div>
+                            <!-- Exibe descrição e botoes -->
                             <div id="detail-content"></div>
                         </div>
                     </div>
@@ -106,10 +108,10 @@
                         {
                             @foreach (var item in Model.Projects)
                             {
-                                <div data-category="" class="reference-item col-lg-3 col-md-6">
+                                <div class="reference-item col-lg-3 col-md-6">
                                     <div class="reference">
                                         <a href="#">
-                                            <img src="@item.ImagePath" id="scrollView" alt="img-responsive" class="img img-thumbnail">
+                                            <img src="~/@item.ImagePath" id="scrollView" alt="img-responsive" class="img img-thumbnail">
                                             <div class="overlay">
                                                 <div class="inner">
                                                     <h3 class="h4 reference-title">@item.Title</h3>

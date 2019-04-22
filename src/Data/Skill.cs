@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Biberg.MyPortfolio.Data
+namespace MyPortfolio.Data
 {
     [Table("Skills")]
     public class Skill

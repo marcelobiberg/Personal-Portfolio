@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Biberg.MyPortfolio.Controllers
+namespace MyPortfolio.Controllers
 {
     public class SettingsController : Controller
     {

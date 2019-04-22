@@ -9,17 +9,17 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Biberg.MyPortfolio.Data;
-using Biberg.MyPortfolio.Services;
-using Biberg.MyPortfolio.Services.Mail;
+using MyPortfolio.Data;
+using MyPortfolio.Services;
+using MyPortfolio.Services.Mail;
 using Microsoft.AspNetCore.Authentication.Facebook;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.AspNetCore.CookiePolicy;
-using Biberg.MyPortfolio.Models;
-using Biberg.MyPortfolio.Services.Profile;
+using MyPortfolio.Models;
+using MyPortfolio.Services.Profile;
 
-namespace Biberg.MyPortfolio
+namespace MyPortfolio
 {
     public class Startup
     {

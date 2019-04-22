@@ -1,11 +1,11 @@
 ﻿@page
-@model Biberg.MyPortfolio.Pages.Skill.CreateModel
+@model MyPortfolio.Pages.Skill.CreateModel
 
 @{
     ViewData["Title"] = "Adicionar Habilidade";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@inject Biberg.MyPortfolio.Services.Profile.ProfileManager ProfileManager
+@inject MyPortfolio.Services.Profile.ProfileManager ProfileManager
 <section class="content-header">
     <h1>
         Habilidade
@@ -36,7 +36,7 @@
                            for="name"
                            class="col-sm-2 control-label"></label>
                     <div class="col-sm-5">
-                        <input asp-for="skill.Name" class="form-control" id="name" placeholder="Nome da habilidade">
+                        <input asp-for="skill.Name" class="form-control" id="name" placeholder="Nome da habilidade" autofocus>
                         <span asp-validation-for="skill.Name" class="help-block"></span>
                     </div>
                 </div>

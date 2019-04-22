@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Biberg.MyPortfolio.Data;
-using Biberg.MyPortfolio.Services;
-using Biberg.MyPortfolio.Services.Mail;
+using MyPortfolio.Data;
+using MyPortfolio.Services;
+using MyPortfolio.Services.Mail;
 
-namespace Biberg.MyPortfolio.Pages.Account
+namespace MyPortfolio.Pages.Account
 {
     public class ForgotPasswordModel : PageModel
     {

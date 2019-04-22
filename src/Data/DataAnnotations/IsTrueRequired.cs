@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 
-namespace Biberg.MyPortfolio.Data.DataAnnotations
+namespace MyPortfolio.Data.DataAnnotations
 {
     public class IsTrueRequired : ValidationAttribute
     {

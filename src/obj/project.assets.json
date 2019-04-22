@@ -13663,9 +13663,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Marcelo Biberg\\Desktop\\Biberg.Portfolio\\src\\Biberg.MyPortfolio.csproj",
-      "projectName": "Biberg.MyPortfolio",
-      "projectPath": "C:\\Users\\Marcelo Biberg\\Desktop\\Biberg.Portfolio\\src\\Biberg.MyPortfolio.csproj",
+      "projectUniqueName": "C:\\Users\\Marcelo Biberg\\Desktop\\Biberg.Portfolio\\src\\MyPortfolio.csproj",
+      "projectName": "MyPortfolio",
+      "projectPath": "C:\\Users\\Marcelo Biberg\\Desktop\\Biberg.Portfolio\\src\\MyPortfolio.csproj",
       "packagesPath": "C:\\Users\\Marcelo Biberg\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Marcelo Biberg\\Desktop\\Biberg.Portfolio\\src\\obj\\",
       "projectStyle": "PackageReference",

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Biberg.MyPortfolio.Data;
+using MyPortfolio.Data;
 
-namespace Biberg.MyPortfolio.Services.Skill
+namespace MyPortfolio.Services.Skill
 {
     public class SkillManager : ISkillManager
     {

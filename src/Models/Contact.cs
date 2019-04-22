@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Biberg.MyPortfolio.Models
+namespace MyPortfolio.Models
 {
     [NotMapped]
     public class Contact

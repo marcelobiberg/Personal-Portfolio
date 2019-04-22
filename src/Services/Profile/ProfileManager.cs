@@ -1,13 +1,10 @@
-﻿using Biberg.MyPortfolio.Data;
+﻿using MyPortfolio.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Biberg.MyPortfolio.Services.Profile
+namespace MyPortfolio.Services.Profile
 {
     public class ProfileManager : IProfileManager
     {

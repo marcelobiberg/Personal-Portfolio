@@ -3,18 +3,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Biberg.MyPortfolio.Data;
+using MyPortfolio.Data;
 using Microsoft.AspNetCore.Hosting;
-using Biberg.MyPortfolio.Models.SiteViewModel;
+using MyPortfolio.Models.SiteViewModel;
 using System.IO;
 
-namespace Biberg.MyPortfolio.Controllers
+namespace MyPortfolio.Controllers
 {
     public class SiteController : Controller
     {
         private readonly ApplicationDbContext _Context;
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IHostingEnvironment _hostingEnvironment;
 
         public SiteController(ApplicationDbContext context,
@@ -26,32 +25,20 @@ namespace Biberg.MyPortfolio.Controllers
             _Context = context;
         }
 
+        private bool UserExists()
+        {
+            return _Context.User.Any();
+        }
+
         //Core jedi
         #region Index do Site
         public async Task<IActionResult> Index()
         {
-            //ID do user logado
-            var user = _Context.User.FirstOrDefault();
+            var MainSite = new MainSiteViewModel();
 
-            if (user != null)
+            if (!UserExists())
             {
-                List<Skill> skills = _Context.Skills.ToList();
-                List<Project> projects = _Context.Project.ToList();
-
-                var MainSite = new MainSiteViewModel
-                {
-                    Name = user.UserName,
-                    Role = user.Role,
-                    AboutDescription = user.AboutDescription,
-                    Skills = skills,
-                    Projects = projects
-                };
-                return View(MainSite);
-            }
-            //Cria modelo padrão da zueira
-            else
-            {
-                var MainSite = new MainSiteViewModel
+                MainSite = new MainSiteViewModel
                 {
                     //Inicio
                     Name = "Bill Gates",
@@ -90,13 +77,6 @@ namespace Biberg.MyPortfolio.Controllers
                             ImagePath = Path.Combine(_hostingEnvironment.WebRootPath,"/Img/Project/4574ba4f-4245-4b24-bcc4-d4eaeb2e433c.jpg"),
                             UrlProject = "www.teste.com.br"
                         }
-                    },
-                    ProjectTypes = new List<ProjectType>
-                    {
-                        new ProjectType
-                        {
-                            Name = "Developer"
-                        }
                     }
                 };
 
@@ -120,6 +100,21 @@ namespace Biberg.MyPortfolio.Controllers
 
                 return View();
             }
+
+            var user = _Context.User.FirstOrDefault();
+            List<Skill> skills = _Context.Skills.ToList();
+            List<Project> projects = _Context.Project.ToList();
+
+            MainSite = new MainSiteViewModel
+            {
+                Name = user.UserName,
+                Role = user.Role,
+                AboutDescription = user.AboutDescription,
+                Skills = skills,
+                Projects = projects
+            };
+            return View(MainSite);
+
         }
         #endregion
     }

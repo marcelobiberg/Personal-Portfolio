@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Biberg.MyPortfolio.Data;
+using MyPortfolio.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace Biberg.MyPortfolio.Pages.Project
+namespace MyPortfolio.Pages.Project
 {
     public class IndexModel : PageModel
     {

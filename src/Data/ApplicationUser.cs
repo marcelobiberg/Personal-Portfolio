@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using Biberg.MyPortfolio.Models;
+using MyPortfolio.Models;
 using Microsoft.AspNetCore.Identity;
 
-namespace Biberg.MyPortfolio.Data
+namespace MyPortfolio.Data
 {
     // Add profile data for application users by adding properties to the ApplicationUser class
     public class ApplicationUser : IdentityUser

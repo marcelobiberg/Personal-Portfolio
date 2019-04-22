@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Biberg.MyPortfolio.Data
+namespace MyPortfolio.Data
 {
     [Table("Projects")]
     public class Project
@@ -26,7 +26,8 @@ namespace Biberg.MyPortfolio.Data
         [Display(Name = "Introdução")]
         public string ShortDescription { get; set; }
 
-        [MaxLength(150)]
+        [MaxLength(150, ErrorMessage = "Máximo 300 caracteres!")]
+        [Display(Name = "Imagem")]
         public string ImagePath { get; set; }
 
         [MaxLength(150, ErrorMessage = "Máximo 150 caracteres!")]

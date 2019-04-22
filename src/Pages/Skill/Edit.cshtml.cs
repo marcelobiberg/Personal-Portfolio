@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Biberg.MyPortfolio.Data;
+using MyPortfolio.Data;
 using System.ComponentModel.DataAnnotations;
 
-namespace Biberg.MyPortfolio.Pages.Skill
+namespace MyPortfolio.Pages.Skill
 {
     public class EditModel : PageModel
     {

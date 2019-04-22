@@ -4,12 +4,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Biberg.MyPortfolio.Data;
+using MyPortfolio.Data;
 using System.Net.Http.Headers;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Biberg.MyPortfolio.Pages.Project
+namespace MyPortfolio.Pages.Project
 {
     public class EditModel : PageModel
     {
@@ -41,7 +41,7 @@ namespace Biberg.MyPortfolio.Pages.Project
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(Guid? id)
+        public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
@@ -53,7 +53,7 @@ namespace Biberg.MyPortfolio.Pages.Project
             if (HttpContext.Request.Form.Files.Count > 0)
             {
                 var fileName = string.Empty;
-                string PathDB = string.Empty;
+                const string defaultPath = "img/Project";
 
                 var files = HttpContext.Request.Form.Files;
 
@@ -74,11 +74,10 @@ namespace Biberg.MyPortfolio.Pages.Project
                         newFileName = myUniqueFileName + FileExtension;
 
                         // Combines two strings into a path.
-                        fileName = Path.Combine(_environment.WebRootPath, "img/Project") + $@"\{newFileName}";
+                        fileName = Path.Combine(_environment.WebRootPath, defaultPath) + $@"\{newFileName}";
 
                         // if you want to store path of folder in database
-                        PathDB = "img/Project/" + newFileName;
-                        Project.ImagePath = PathDB;
+                        Project.ImagePath = defaultPath + newFileName;
 
                         using (FileStream fs = System.IO.File.Create(fileName))
                         {
@@ -87,11 +86,6 @@ namespace Biberg.MyPortfolio.Pages.Project
                         }
                     }
                 }
-            }
-            else
-            {
-                //FIXME: deschumbar 
-                Project.ImagePath = "img/logo-big.png";
             }
 
             _context.Attach(Project).State = EntityState.Modified;
