@@ -6,13 +6,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Center Control - @ViewData["Title"]</title>
+    <title>Center Control</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="~/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="~/bower_components/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="~/bower_components/Ionicons/css/ionicons.min.css">
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/css/ionicons.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="~/plugins/iCheck/square/blue.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition login-page" style="height: auto;">
@@ -22,18 +21,8 @@
         </div>
         @RenderBody()
     </div>
-    <script src="~/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="~/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="~/plugins/iCheck/icheck.min.js"></script>
-    <script>
-        $(function () {
-            $('input').iCheck({
-                checkboxClass: 'icheckbox_square-blue',
-                radioClass: 'iradio_square-blue',
-                increaseArea: '20%' /* optional */
-            });
-        });
-    </script>
+    <script src="~/js/jquery/dist/jquery.js"></script>
+    <script src="~/js/bootstrap.js"></script>
 
     @await Html.PartialAsync("_ValidationScriptsPartial")
 </body>

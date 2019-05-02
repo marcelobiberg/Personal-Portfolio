@@ -10,6 +10,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Net.Http.Headers;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using MyPortfolio.Services.Upload;
+using Microsoft.AspNetCore.Http;
+using Amazon.S3;
+using Amazon.S3.Transfer;
+using Amazon;
 
 namespace MyPortfolio.Pages.Project
 {
@@ -57,6 +62,28 @@ namespace MyPortfolio.Pages.Project
         [BindProperty]
         public Data.Project Project { get; set; }
 
+        public async Task UploadFileToS3(IFormFile file)
+        {
+            using (var client = new AmazonS3Client("ASIAUMDIRDA44BKH3D5V", "HClz97bFcQk0Hza5bkaf1g7FhOpmFPEEQ4H25gvi", RegionEndpoint.USEast1))
+            {
+                using (var newMemoryStream = new MemoryStream())
+                {
+                    file.CopyTo(newMemoryStream);
+
+                    var uploadRequest = new TransferUtilityUploadRequest
+                    {
+                        InputStream = newMemoryStream,
+                        Key = file.FileName,
+                        BucketName = "bukectmyportfolio",
+                        CannedACL = S3CannedACL.PublicRead
+                    };
+
+                    var fileTransferUtility = new TransferUtility(client);
+                    await fileTransferUtility.UploadAsync(uploadRequest);
+                }
+            }
+        }
+
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> OnPostAsync()
         {
@@ -78,6 +105,7 @@ namespace MyPortfolio.Pages.Project
                 {
                     if (file.Length > 0)
                     {
+
                         //Getting FileName
                         fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
 
@@ -97,6 +125,8 @@ namespace MyPortfolio.Pages.Project
                         PathDB = "img/Project/" + newFileName;
                         Project.ImagePath = PathDB;
 
+                        //await UploadFileToS3(file);
+
                         using (FileStream fs = System.IO.File.Create(fileName))
                         {
                             file.CopyTo(fs);
@@ -107,8 +137,7 @@ namespace MyPortfolio.Pages.Project
             }
             else
             {
-                //FIXME: deschumbar 
-                Project.ImagePath = "img/logo-big.png";
+                Project.ImagePath = "img/home.jpg";
             }
 
             _context.Project.Add(Project);

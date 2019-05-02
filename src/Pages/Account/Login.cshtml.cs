@@ -42,9 +42,6 @@ namespace MyPortfolio.Pages.Account
             [Required]
             [DataType(DataType.Password)]
             public string Password { get; set; }
-
-            [Display(Name = "Remember me?")]
-            public bool RememberMe { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -69,19 +66,16 @@ namespace MyPortfolio.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = await _signInManager.UserManager.FindByEmailAsync(Input.Email);
-                
-                if (user != null) {
+
+                if (user != null)
+                {
                     // This doesn't count login failures towards account lockout
                     // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                    var result = await _signInManager.PasswordSignInAsync(user, Input.Password, Input.RememberMe, lockoutOnFailure: true);
+                    var result = await _signInManager.PasswordSignInAsync(user, Input.Password, true, lockoutOnFailure: true);
                     if (result.Succeeded)
                     {
                         _logger.LogInformation("User logged in.");
                         return RedirectToPage("/Admin/index");
-                    }
-                    if (result.RequiresTwoFactor)
-                    {
-                        return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
                     }
                     if (result.IsLockedOut)
                     {
@@ -96,7 +90,7 @@ namespace MyPortfolio.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Usu·rio com este e-mail n„o foi encontrado!");
+                    ModelState.AddModelError(string.Empty, "Usu√°rio com este e-mail n√£o foi encontrado!");
                     return Page();
                 }
             }

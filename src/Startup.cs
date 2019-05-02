@@ -84,8 +84,6 @@ namespace MyPortfolio
                     options.Conventions.AllowAnonymousToPage("/Account/ForgotPasswordConfirmation");
                     options.Conventions.AllowAnonymousToPage("/Account/Lockout");
                     options.Conventions.AllowAnonymousToPage("/Account/Login");
-                    options.Conventions.AllowAnonymousToPage("/Account/LoginWith2fa");
-                    options.Conventions.AllowAnonymousToPage("/Account/LoginWithRecoveryCode");
                     options.Conventions.AllowAnonymousToPage("/Account/Register");
                     options.Conventions.AllowAnonymousToPage("/Account/ResetPassword");
                     options.Conventions.AllowAnonymousToPage("/Account/ResetPasswordConfirmation");

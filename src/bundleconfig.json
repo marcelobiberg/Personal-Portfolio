@@ -18,9 +18,9 @@
     "inputFiles": [
       "wwwroot/js/site.js",
       "wwwroot/plugins/jquery/dist/jquery.js",
+      "wwwroot/plugins/bootstrap-site/dist/js/bootstrap.js",
       "wwwroot/plugins/Notify/notify.js",
       "wwwroot/plugins/popper/umd/popper.js",
-      "wwwroot/plugins/bootstrap-site/dist/js/bootstrap.js",
       "wwwroot/plugins/jquery.cookie/jquery.cookie.js",
       "wwwroot/plugins/owl.carousel/owl.carousel.js",
       "wwwroot/plugins/waypoints/lib/jquery.waypoints.js",

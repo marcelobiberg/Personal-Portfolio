@@ -1,5 +1,5 @@
 {
-  "private": true,
+  "private": false,
   "name": "admin-lte",
   "homepage": "https://adminlte.io",
   "authors": [
@@ -27,7 +27,6 @@
   "ignore": [
     "/.*",
     "node_modules",
-    "bower_components",
     "composer.json",
     "documentation"
   ],

@@ -2,6 +2,39 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.0": {
+      "AWSSDK.AutoScaling/3.3.100.13": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[3.3.101.4, 3.4.0)"
+        },
+        "compile": {
+          "lib/netstandard2.0/AWSSDK.AutoScaling.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AWSSDK.AutoScaling.dll": {}
+        }
+      },
+      "AWSSDK.Core/3.3.101.4": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/AWSSDK.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AWSSDK.Core.dll": {}
+        }
+      },
+      "AWSSDK.S3/3.3.101.11": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[3.3.101.4, 3.4.0)"
+        },
+        "compile": {
+          "lib/netstandard2.0/AWSSDK.S3.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AWSSDK.S3.dll": {}
+        }
+      },
       "BuildBundlerMinifier/2.9.406": {
         "type": "package",
         "build": {
@@ -5051,6 +5084,135 @@
     }
   },
   "libraries": {
+    "AWSSDK.AutoScaling/3.3.100.13": {
+      "sha512": "Vxw9IsXL5uEG9nBHrAO+a2OW4qUe+R4nJzIzHuGlOl2aYu7xDLcYFOY2G610pRnql3hiXbXEyExbOH1VxOu6vw==",
+      "type": "package",
+      "path": "awssdk.autoscaling/3.3.100.13",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/cs/AWSSDK.AutoScaling.CodeAnalysis.dll",
+        "awssdk.autoscaling.3.3.100.13.nupkg.sha512",
+        "awssdk.autoscaling.nuspec",
+        "lib/MonoAndroid10/AWSSDK.AutoScaling.XML",
+        "lib/MonoAndroid10/AWSSDK.AutoScaling.dll",
+        "lib/MonoTouch10/AWSSDK.AutoScaling.XML",
+        "lib/MonoTouch10/AWSSDK.AutoScaling.dll",
+        "lib/MonoTouch10/AWSSDK.AutoScaling.pdb",
+        "lib/Xamarin.iOS10/AWSSDK.AutoScaling.XML",
+        "lib/Xamarin.iOS10/AWSSDK.AutoScaling.dll",
+        "lib/net35/AWSSDK.AutoScaling.dll",
+        "lib/net35/AWSSDK.AutoScaling.pdb",
+        "lib/net35/AWSSDK.AutoScaling.xml",
+        "lib/net45/AWSSDK.AutoScaling.dll",
+        "lib/net45/AWSSDK.AutoScaling.pdb",
+        "lib/net45/AWSSDK.AutoScaling.xml",
+        "lib/netstandard1.3/AWSSDK.AutoScaling.dll",
+        "lib/netstandard1.3/AWSSDK.AutoScaling.pdb",
+        "lib/netstandard1.3/AWSSDK.AutoScaling.xml",
+        "lib/netstandard2.0/AWSSDK.AutoScaling.dll",
+        "lib/netstandard2.0/AWSSDK.AutoScaling.pdb",
+        "lib/netstandard2.0/AWSSDK.AutoScaling.xml",
+        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.AutoScaling.XML",
+        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.AutoScaling.dll",
+        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.AutoScaling.pdb",
+        "lib/uap/AWSSDK.AutoScaling.XML",
+        "lib/uap/AWSSDK.AutoScaling.dll",
+        "lib/uap/AWSSDK.AutoScaling.pdb",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
+    "AWSSDK.Core/3.3.101.4": {
+      "sha512": "2O+bzB6KiT4VB9Zamonr5HAXZA/o0UFPeHZLHE5tHnAzZSSmkTIp3Kc2FtyazK9ArNWdFHpWFIEboKK3WhaECA==",
+      "type": "package",
+      "path": "awssdk.core/3.3.101.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "awssdk.core.3.3.101.4.nupkg.sha512",
+        "awssdk.core.nuspec",
+        "lib/MonoAndroid10/AWSSDK.Core.XML",
+        "lib/MonoAndroid10/AWSSDK.Core.dll",
+        "lib/MonoAndroid10/AWSSDK.Core.pdb",
+        "lib/MonoTouch10/AWSSDK.Core.XML",
+        "lib/MonoTouch10/AWSSDK.Core.dll",
+        "lib/Xamarin.Mac20/AWSSDK.Core.XML",
+        "lib/Xamarin.Mac20/AWSSDK.Core.dll",
+        "lib/Xamarin.iOS10/AWSSDK.Core.XML",
+        "lib/Xamarin.iOS10/AWSSDK.Core.dll",
+        "lib/net35/AWSSDK.Core.dll",
+        "lib/net35/AWSSDK.Core.pdb",
+        "lib/net35/AWSSDK.Core.xml",
+        "lib/net45/AWSSDK.Core.dll",
+        "lib/net45/AWSSDK.Core.pdb",
+        "lib/net45/AWSSDK.Core.xml",
+        "lib/netstandard1.3/AWSSDK.Core.dll",
+        "lib/netstandard1.3/AWSSDK.Core.pdb",
+        "lib/netstandard1.3/AWSSDK.Core.xml",
+        "lib/netstandard2.0/AWSSDK.Core.dll",
+        "lib/netstandard2.0/AWSSDK.Core.pdb",
+        "lib/netstandard2.0/AWSSDK.Core.xml",
+        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.Core.XML",
+        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.Core.dll",
+        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.Core.pdb",
+        "lib/uap/AWSSDK.Core.XML",
+        "lib/uap/AWSSDK.Core.dll",
+        "lib/uap/AWSSDK.Core.pdb",
+        "lib/win8/AWSSDK.Core.XML",
+        "lib/win8/AWSSDK.Core.dll",
+        "lib/win8/AWSSDK.Core.pdb",
+        "lib/wp8/AWSSDK.Core.XML",
+        "lib/wp8/AWSSDK.Core.dll",
+        "lib/wp8/AWSSDK.Core.pdb",
+        "lib/wpa81/AWSSDK.Core.XML",
+        "lib/wpa81/AWSSDK.Core.dll",
+        "lib/wpa81/AWSSDK.Core.pdb",
+        "tools/account-management.ps1"
+      ]
+    },
+    "AWSSDK.S3/3.3.101.11": {
+      "sha512": "CYIQfqJQ/mGLl9bJjXPPCk+PZVMc87i9IhJgTDk87JwyOhR/7RZLFvw8Pnb/h7rP2+4dLoPCSUXGOy4zMLCqtw==",
+      "type": "package",
+      "path": "awssdk.s3/3.3.101.11",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/cs/AWSSDK.S3.CodeAnalysis.dll",
+        "awssdk.s3.3.3.101.11.nupkg.sha512",
+        "awssdk.s3.nuspec",
+        "lib/MonoAndroid10/AWSSDK.S3.XML",
+        "lib/MonoAndroid10/AWSSDK.S3.dll",
+        "lib/MonoTouch10/AWSSDK.S3.XML",
+        "lib/MonoTouch10/AWSSDK.S3.dll",
+        "lib/MonoTouch10/AWSSDK.S3.pdb",
+        "lib/Xamarin.iOS10/AWSSDK.S3.XML",
+        "lib/Xamarin.iOS10/AWSSDK.S3.dll",
+        "lib/net35/AWSSDK.S3.dll",
+        "lib/net35/AWSSDK.S3.pdb",
+        "lib/net35/AWSSDK.S3.xml",
+        "lib/net45/AWSSDK.S3.dll",
+        "lib/net45/AWSSDK.S3.pdb",
+        "lib/net45/AWSSDK.S3.xml",
+        "lib/netstandard1.3/AWSSDK.S3.dll",
+        "lib/netstandard1.3/AWSSDK.S3.pdb",
+        "lib/netstandard1.3/AWSSDK.S3.xml",
+        "lib/netstandard2.0/AWSSDK.S3.dll",
+        "lib/netstandard2.0/AWSSDK.S3.pdb",
+        "lib/netstandard2.0/AWSSDK.S3.xml",
+        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.S3.XML",
+        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.S3.dll",
+        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.S3.pdb",
+        "lib/uap/AWSSDK.S3.XML",
+        "lib/uap/AWSSDK.S3.dll",
+        "lib/uap/AWSSDK.S3.pdb",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
     "BuildBundlerMinifier/2.9.406": {
       "sha512": "jNgso4DDVEDTmM2O41WWI8OMC5CV0yMqMK/cRMJldO64XzC2PDdg+FV/GHqN6qh3KDuTKcDlB/t7F2WBWrNOgQ==",
       "type": "package",
@@ -13648,6 +13810,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "AWSSDK.AutoScaling >= 3.3.100.13",
+      "AWSSDK.S3 >= 3.3.101.11",
       "BuildBundlerMinifier >= 2.9.406",
       "Microsoft.AspNetCore.All >= 2.0.3",
       "Microsoft.EntityFrameworkCore.Tools >= 2.0.3",
@@ -13697,6 +13861,14 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
+          "AWSSDK.AutoScaling": {
+            "target": "Package",
+            "version": "[3.3.100.13, )"
+          },
+          "AWSSDK.S3": {
+            "target": "Package",
+            "version": "[3.3.101.11, )"
+          },
           "BuildBundlerMinifier": {
             "target": "Package",
             "version": "[2.9.406, )"
